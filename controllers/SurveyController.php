@@ -26,7 +26,7 @@ class SurveyController extends BaseController
 		
 		if (isset($params["survey_cancel"])) {
 			$this->session->logout();
-			$this->redirect("/");
+			$this->redirect($this->base_url."/");
 		} else if (isset($params["survey_submit"])) {
 			if (isset($params["answers"]) && count($params["answers"]) > 0) {
 				if ($this->survey->getType() == "single") {
@@ -40,7 +40,7 @@ class SurveyController extends BaseController
 					$this->finish();
 				}
 				
-				$this->redirect("/");
+				$this->redirect($this->base_url."/");
 			} else {
 				$this->notices[] = "missing_user_input";
 			}
@@ -67,4 +67,3 @@ class SurveyController extends BaseController
 	}
 }
 
-?>

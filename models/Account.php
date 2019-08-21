@@ -23,9 +23,11 @@ class Account extends Record
 		$stmt = Record::getDatabase()->prepare("SELECT id, email, password, has_voted FROM accounts WHERE email = :email AND password = :password");
 		
 		$stmt->bindParam(":email", $email, PDO::PARAM_STR);
-		$stmt->bindParam(":password", md5($password), PDO::PARAM_STR);
-		
+		// https://stackoverflow.com/questions/6770850/pdo-pass-by-reference-notice/36707955
+		$stmt_password = NULL;
+		$stmt->bindParam(":password", $stmt_password, PDO::PARAM_STR);
 		$stmt->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
+		$stmt_password = md5($password);
 		$stmt->execute();
 		
 		return $stmt->fetch();

@@ -50,4 +50,3 @@ class Survey extends Record
 	}
 }
 
-?>

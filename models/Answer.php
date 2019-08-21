@@ -26,4 +26,3 @@ class Answer extends Record
 	}
 }
 
-?>

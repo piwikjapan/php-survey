@@ -13,6 +13,7 @@ class Application
 	protected $database;
 	protected $session;
 	protected $controller;
+	protected $base_url;
 	
 	public function __construct($config)
 	{
@@ -31,6 +32,7 @@ class Application
             $driver_options[PDO::MYSQL_ATTR_INIT_COMMAND] = 'SET NAMES utf8';
         }
 
+		$this->base_url = empty($this->config['base_url']) ? "" : $this->config['base_url'];
 		$this->database = new PDO($this->config['db_dsn'], $this->config['db_user'], $this->config['db_pass'], $driver_options);
 		$this->database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -66,6 +68,10 @@ class Application
 	public function getDatabase()
 	{
 		return $this->database;
+	}
+	public function getBaseUrl()
+	{
+		return $this->base_url;
 	}
 };
 

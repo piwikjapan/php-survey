@@ -32,14 +32,14 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `has_voted` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Daten für Tabelle `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `email`, `password`, `has_voted`) VALUES
-(1, 'example@example.com', '5f4dcc3b5aa765d61d8327deb882cf99', 0);
+(1, 'example@example.com', '974ccf0a79946311edd8c17c6dda4ec5', 0);
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `answers` (
   `account_id` int(11) NOT NULL,
   `option_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Daten für Tabelle `answers`
@@ -70,19 +70,19 @@ CREATE TABLE IF NOT EXISTS `options` (
   `survey_id` int(11) NOT NULL,
   `text` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Daten für Tabelle `options`
 --
 
 INSERT INTO `options` (`id`, `survey_id`, `text`) VALUES
-(1, 1, 'Gut'),
-(2, 1, 'Schlecht'),
-(3, 2, 'Rot'),
-(4, 2, 'Gelb'),
-(5, 2, 'Grün'),
-(6, 2, 'Blau');
+(1, 1, '良い'),
+(2, 1, '悪い'),
+(3, 2, '赤'),
+(4, 2, '黄'),
+(5, 2, '緑'),
+(6, 2, '青');
 
 -- --------------------------------------------------------
 
@@ -95,12 +95,12 @@ CREATE TABLE IF NOT EXISTS `surveys` (
   `question` varchar(255) NOT NULL,
   `type` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Daten für Tabelle `surveys`
 --
 
 INSERT INTO `surveys` (`id`, `question`, `type`) VALUES
-(1, 'Wie geht es dir?', 'single'),
-(2, 'Was sind deine Lieblingsfarben?', 'multiple');
+(1, 'お元気ですか？', 'single'),
+(2, '好きな色は何ですか？', 'multiple');

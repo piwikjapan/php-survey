@@ -42,7 +42,7 @@ class LoginController extends BaseController
 					$this->notices[] = "already_voted";
 				} else {
 					$this->session->login($account);
-					$this->redirect("/");
+					$this->redirect($this->base_url."/");
 				}			
 			} else {
 				$this->notices[] = "invalid_credentials";
@@ -53,4 +53,3 @@ class LoginController extends BaseController
 	}
 }
 
-?>

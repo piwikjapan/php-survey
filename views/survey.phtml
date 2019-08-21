@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="/css/form.css" />
-<link rel="stylesheet" href="/css/box.css" />
-<link rel="stylesheet" href="/css/survey.css" />
+<link rel="stylesheet" href="<?php echo $this->base_url ?>/css/form.css" />
+<link rel="stylesheet" href="<?php echo $this->base_url ?>/css/box.css" />
+<link rel="stylesheet" href="<?php echo $this->base_url ?>/css/survey.css" />
 
 <div class="form box survey">
-	<form method="post" action="/">
+	<form method="post" action="<?php echo $this->base_url ?>/">
 		<div class="header">
 			<h2 class="question"><?= escape($this->survey->getQuestion()) ?></h2>
 		</div>
@@ -12,7 +12,7 @@
 			<?php foreach ($this->notices as $notice) : ?>
 				<?php if ($notice == "missing_user_input") : ?>
 					<div class="notice error">
-						Du musst mindestens eine Auswahlmöglichkeit setzen!
+                        少なくとも1つの選択肢を設定する必要があります！
 					</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
@@ -38,8 +38,8 @@
 
 		<div class="footer">
 			<div class="element button">
-				<input type="submit" name="survey_cancel" value="Abbrechen">
-				<input type="submit" name="survey_submit" value="Weiter">
+				<input type="submit" name="survey_cancel" value="中止">
+				<input type="submit" name="survey_submit" value="もっと">
 			</div>
 		</div>
 	</form>
