@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. インストール &mdash; CySecPRO 1.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="2. 仕様" href="specification.html" />
+    <link rel="prev" title="PHP-Survey" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CySecPRO
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. インストール</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#github">1.1. github よりソースをとってきます</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.2. 配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.3. 配置確認</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#php-mysql">1.4. PHP の mysql モジュールをインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mariadb">1.5. MariaDB をインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mariadb-root">1.6. MariaDB の root パスワードの設定と余計な項目の削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#php-survey">1.7. PHP-Survey 用のデータベースを作ります</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">1.8. 動作確認</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="specification.html">2. 仕様</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CySecPRO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. インストール</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1. インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="github">
+<h2>1.1. github よりソースをとってきます<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> ~
+<span class="gp">$</span> git clone https://github.com/piwikjapan/php-survey.git
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id2">
+<h2>1.2. 配置<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>動作に関係のないファイルは配置しないようにします</p></li>
+</ul>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">$</span> mkdir /var/www/html/survey
+<span class="gp">$</span> <span class="nb">cd</span> php-survey/
+<span class="gp">$</span> cp -rp controllers core css images index.php models views /var/www/html/survey/
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id3">
+<h2>1.3. 配置確認<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>Web ブラウザで http ://ホストオンリーアダプターの IP アドレス</p></li>
+<li><p>データベースが設定されていないので、エラーが出ます</p></li>
+</ul>
+<blockquote>
+<div><p>Fatal error: Uncaught Error: Undefined class constant 'MYSQL_ATTR_INIT_COMMAND' in /var/www/html/survey/core/Application.php:31 Stack trace: #0 /var/www/html/survey/index.php(23): Application-&gt;run() #1 {main} thrown in /var/www/html/survey/core/Application.php on line 31</p>
+</div></blockquote>
+<p>エラーメッセージより、MySQL (MariaDB <a class="footnote-reference brackets" href="#id5" id="id4">1</a> ) の設定が必要であることがわかります。</p>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id4">1</a></span></dt>
+<dd><p>MariaDBの開発は、MySQLのオリジナルコードの作者で MySQL AB の創設者でもあるミカエル・ウィデニウスにより、現在オラクルによって所有されているMySQLをフォークして立ち上げられたプロジェクトにより行われている。引用元: <a class="reference external" href="https://ja.wikipedia.org/wiki/MariaDB">Wikipedia</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="php-mysql">
+<h2>1.4. PHP の mysql モジュールをインストール<a class="headerlink" href="#php-mysql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>apache のリスタートを忘れないでください</p></li>
+</ul>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="gp">$</span> sudo apt install php-mysql
+</span><span class="hll"><span class="go">[sudo] cysec のパスワード:</span>
+</span><span class="go">パッケージリストを読み込んでいます... 完了</span>
+<span class="go">依存関係ツリーを作成しています</span>
+<span class="go">状態情報を読み取っています... 完了</span>
+<span class="go">以下の追加パッケージがインストールされます:</span>
+<span class="go">  php7.2-mysql</span>
+<span class="go">以下のパッケージが新たにインストールされます:</span>
+<span class="go">  php-mysql php7.2-mysql</span>
+<span class="go">アップグレード: 0 個、新規インストール: 2 個、削除: 0 個、保留: 7 個。</span>
+<span class="go">119 kB のアーカイブを取得する必要があります。</span>
+<span class="go">この操作後に追加で 461 kB のディスク容量が消費されます。</span>
+<span class="hll"><span class="go">続行しますか? [Y/n] Y</span>
+</span><span class="go">～ 略 ～</span>
+<span class="go">libapache2-mod-php7.2 (7.2.19-0ubuntu0.18.04.2) のトリガを処理しています ...</span>
+<span class="go">php-mysql (1:7.2+60ubuntu1) を設定しています ...</span>
+<span class="hll"><span class="gp">$</span> sudo service apache2 restart
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="mariadb">
+<h2>1.5. MariaDB をインストール<a class="headerlink" href="#mariadb" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="gp">$</span> apt install  mariadb-server
+</span><span class="go">～ 略 ～</span>
+<span class="go">この操作後に追加で 185 MB のディスク容量が消費されます。</span>
+<span class="hll"><span class="go">続行しますか? [Y/n] Y</span>
+</span><span class="go">～ 略 ～</span>
+</pre></div>
+</td></tr></table></div>
+<p>CentOS であればどの Ubuntu の一般ユーザーからでも MariaDB の管理者（root）としてログインできるのですが、Ubuntu のパッケージは Ubuntu の root でしか MariaDB の root 操作がゆるされません。
+<a class="reference external" href="https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost">ERROR 1698 (28000): Access denied for user 'root'&#64;'localhost'</a></p>
+<p>これを、どの Ubuntu 一般ユーザーからでも MariaDB の管理者（root）としてログインできる設定に変更します。</p>
+<ul class="simple">
+<li><p>root での作業です。</p></li>
+</ul>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="gp">#</span> service mysqld stop
+</span><span class="hll"><span class="gp">#</span> rm -rf /var/lib/mysql/*
+</span><span class="hll"><span class="gp">#</span> mysql_install_db
+</span><span class="go">Installing MariaDB/MySQL system tables in &#39;/var/lib/mysql&#39; ...</span>
+<span class="go">2019-08-21 14:16:54 140405381696640 [Note] /usr/sbin/mysqld (mysqld 10.1.41-MariaDB-0ubuntu0.18.04.1) starting as process 8065 ...</span>
+<span class="go">OK</span>
+<span class="go">Filling help tables...</span>
+<span class="go">2019-08-21 14:16:58 140067996961920 [Note] /usr/sbin/mysqld (mysqld 10.1.41-MariaDB-0ubuntu0.18.04.1) starting as process 8094 ...</span>
+<span class="go">OK</span>
+<span class="go">Creating OpenGIS required SP-s...</span>
+<span class="go">2019-08-21 14:17:01 140542689062016 [Note] /usr/sbin/mysqld (mysqld 10.1.41-MariaDB-0ubuntu0.18.04.1) starting as process 8126 ...</span>
+<span class="go">OK</span>
+<span class="go">～ 略 ～</span>
+<span class="hll"><span class="gp">#</span> service mysqld start
+</span></pre></div>
+</td></tr></table></div>
+<p>これで CentOS 相当になりました。</p>
+</div>
+<div class="section" id="mariadb-root">
+<h2>1.6. MariaDB の root パスワードの設定と余計な項目の削除<a class="headerlink" href="#mariadb-root" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>root パスワードの設定、anonymous ユーザー <a class="footnote-reference brackets" href="#id7" id="id6">2</a> の削除、test データベースの削除</p>
+<ul>
+<li><p>全部 Y なのです</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="gp">#</span> mysql_secure_installation
+</span>
+<span class="go">NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB</span>
+<span class="go">      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!</span>
+
+<span class="go">In order to log into MariaDB to secure it, we&#39;ll need the current</span>
+<span class="go">password for the root user.  If you&#39;ve just installed MariaDB, and</span>
+<span class="go">you haven&#39;t set the root password yet, the password will be blank,</span>
+<span class="go">so you should just press enter here.</span>
+
+<span class="hll"><span class="go">Enter current password for root (enter for none):パスワードは空なので [Enter]</span>
+</span><span class="go">OK, successfully used password, moving on...</span>
+
+<span class="go">Setting the root password ensures that nobody can log into the MariaDB</span>
+<span class="go">root user without the proper authorisation.</span>
+
+<span class="hll"><span class="go">Set root password? [Y/n] Y</span>
+</span><span class="hll"><span class="go">New password:pentester</span>
+</span><span class="hll"><span class="go">Re-enter new password:pentester</span>
+</span><span class="go">Password updated successfully!</span>
+<span class="go">Reloading privilege tables..</span>
+<span class="go"> ... Success!</span>
+
+
+<span class="go">By default, a MariaDB installation has an anonymous user, allowing anyone</span>
+<span class="go">to log into MariaDB without having to have a user account created for</span>
+<span class="go">them.  This is intended only for testing, and to make the installation</span>
+<span class="go">go a bit smoother.  You should remove them before moving into a</span>
+<span class="go">production environment.</span>
+
+<span class="hll"><span class="go">Remove anonymous users? [Y/n] Y</span>
+</span><span class="go"> ... Success!</span>
+
+<span class="go">Normally, root should only be allowed to connect from &#39;localhost&#39;.  This</span>
+<span class="go">ensures that someone cannot guess at the root password from the network.</span>
+
+<span class="hll"><span class="go">Disallow root login remotely? [Y/n] Y</span>
+</span><span class="go"> ... Success!</span>
+
+<span class="go">By default, MariaDB comes with a database named &#39;test&#39; that anyone can</span>
+<span class="go">access.  This is also intended only for testing, and should be removed</span>
+<span class="go">before moving into a production environment.</span>
+
+<span class="hll"><span class="go">Remove test database and access to it? [Y/n] Y</span>
+</span><span class="go"> - Dropping test database...</span>
+<span class="go"> ... Success!</span>
+<span class="go"> - Removing privileges on test database...</span>
+<span class="go"> ... Success!</span>
+
+<span class="go">Reloading the privilege tables will ensure that all changes made so far</span>
+<span class="go">will take effect immediately.</span>
+
+<span class="hll"><span class="go">Reload privilege tables now? [Y/n] Y</span>
+</span><span class="go"> ... Success!</span>
+
+<span class="go">Cleaning up...</span>
+
+<span class="go">All done!  If you&#39;ve completed all of the above steps, your MariaDB</span>
+<span class="go">installation should now be secure.</span>
+
+<span class="go">Thanks for using MariaDB!</span>
+<span class="hll"><span class="gp">#</span> <span class="nb">exit</span>
+</span></pre></div>
+</td></tr></table></div>
+<dl class="footnote brackets">
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id6">2</a></span></dt>
+<dd><p>ユーザー名はなんでもいい、パスワードなしの MariaDB アカウント</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="php-survey">
+<h2>1.7. PHP-Survey 用のデータベースを作ります<a class="headerlink" href="#php-survey" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>php-survey/index.php にあらかじめ定義しておいたので、これに合わせます</p>
+<p>index.php</p>
+<div class="highlight-php-inline notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">$config</span> <span class="o">=</span> <span class="k">array</span> <span class="p">(</span>
+    <span class="s2">&quot;db_dsn&quot;</span>      <span class="o">=&gt;</span> <span class="s2">&quot;mysql:dbname=survey_db;host=127.0.0.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db_user&quot;</span>     <span class="o">=&gt;</span> <span class="s2">&quot;survey&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db_pass&quot;</span>     <span class="o">=&gt;</span> <span class="s2">&quot;survey_pass&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db_pconnect&quot;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s2">&quot;db_charset&quot;</span>  <span class="o">=&gt;</span> <span class="s2">&quot;utf8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;base_url&quot;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;/survey&quot;</span><span class="p">,</span> <span class="c1"># この行はデータベース接続の設定ではない</span>
+<span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+<p>アンケート調査アプリケーションで使用する survey_db というデータベースと、root 以外のアカウント、survey を作ります。こういったアプリケーションでは機能を限定したユーザーを作ります。root を使うこともできるのですが、root はなんでもできます。例えばアプリケーションと関係のないデータベースも変更ができてしまいます。</p>
+<ul class="simple">
+<li><p>10 行: survey_db というデータベースを作ります。デフォルト文字コードは utf-8 です</p></li>
+<li><p>13 行: survey_db に <a class="reference external" href="mailto:survey&#37;&#52;&#48;'localhost">survey<span>&#64;</span>'localhost</a>' からの全面アクセスを許可します。<a class="reference external" href="mailto:survey&#37;&#52;&#48;'localhost">survey<span>&#64;</span>'localhost</a>' のパスワードは survey_pass とします。</p></li>
+<li><p>19 行: （<a class="reference external" href="mailto:survey&#37;&#52;&#48;'localhost">survey<span>&#64;</span>'localhost</a>' の）資格情報を有効化します。</p></li>
+</ul>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="gp">$</span> mysql -uroot -ppentester
+</span><span class="go">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span>
+<span class="go">Your MariaDB connection id is 49</span>
+<span class="go">Server version: 10.1.41-MariaDB-0ubuntu0.18.04.1 Ubuntu 18.04</span>
+
+<span class="go">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span>
+
+<span class="go">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span>
+
+<span class="hll"><span class="go">MariaDB [(none)]&gt; CREATE DATABASE survey_db DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</span>
+</span><span class="go">Query OK, 1 row affected (0.00 sec)</span>
+
+<span class="hll"><span class="go">MariaDB [(none)]&gt; grant all on survey_db.* to survey@&#39;localhost&#39; identified by &#39;survey_pass&#39; with grant option;</span>
+</span><span class="go">Query OK, 0 rows affected (0.00 sec)</span>
+
+<span class="go">MariaDB [(none)]&gt; flush privileges;</span>
+<span class="go">Query OK, 0 rows affected (0.00 sec)</span>
+
+<span class="hll"><span class="go">MariaDB [(none)]&gt; exit</span>
+</span><span class="go">Bye</span>
+</pre></div>
+</td></tr></table></div>
+<p>utf8_general_ci とは</p>
+<blockquote>
+<div><p>アルファベットの大文字・小文字は区別せずにマッチする。
+ただし、区別しない文字は、半角は半角の大文字・小文字、全角は全角の大文字・小文字のみ。
+半角小文字と全角小文字同士はマッチしない。</p>
+</div></blockquote>
+<p>root が必要な作業は終わったので、アンケート調査アプリケーションの専用アカウント survey で接続しなおします。</p>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="gp">$</span> <span class="nb">cd</span> ~
+</span><span class="hll"><span class="gp">$</span> <span class="nb">cd</span> php-survey/
+</span><span class="hll"><span class="gp">$</span> mysql -uservey -psurvey_pass survey_db
+</span><span class="go">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span>
+<span class="go">Your MariaDB connection id is 60</span>
+<span class="go">Server version: 10.1.41-MariaDB-0ubuntu0.18.04.1 Ubuntu 18.04</span>
+
+<span class="go">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span>
+
+<span class="go">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.</span>
+
+<span class="hll"><span class="go">MariaDB [survey_db]&gt; \! pwd</span>
+</span><span class="go">/home/cysec/php-survey/assets</span>
+<span class="hll"><span class="go">MariaDB [survey_db]&gt; \! ls</span>
+</span><span class="go">install.sql</span>
+<span class="hll"><span class="go">MariaDB [survey_db]&gt; source install.sql</span>
+</span><span class="go">Query OK, 0 rows affected (0.00 sec)</span>
+
+<span class="go">Query OK, 0 rows affected (0.00 sec)</span>
+
+<span class="go">Query OK, 0 rows affected (0.00 sec)</span>
+
+<span class="go">Query OK, 0 rows affected (0.00 sec)</span>
+
+<span class="go">Query OK, 0 rows affected (0.00 sec)</span>
+
+<span class="go">Query OK, 0 rows affected (0.16 sec)</span>
+
+<span class="go">Query OK, 1 row affected (0.00 sec)</span>
+
+<span class="go">Query OK, 0 rows affected (0.01 sec)</span>
+
+<span class="go">Query OK, 0 rows affected (0.01 sec)</span>
+
+<span class="go">Query OK, 6 rows affected (0.00 sec)</span>
+<span class="go">Records: 6  Duplicates: 0  Warnings: 0</span>
+
+<span class="go">Query OK, 0 rows affected (0.01 sec)</span>
+
+<span class="go">Query OK, 2 rows affected (0.00 sec)</span>
+<span class="go">Records: 2  Duplicates: 0  Warnings: 0</span>
+
+<span class="hll"><span class="go">MariaDB [survey_db]&gt; show tables;</span>
+</span><span class="go">+---------------------+</span>
+<span class="go">| Tables_in_survey_db |</span>
+<span class="go">+---------------------+</span>
+<span class="go">| accounts            |</span>
+<span class="go">| answers             |</span>
+<span class="go">| options             |</span>
+<span class="go">| surveys             |</span>
+<span class="go">+---------------------+</span>
+<span class="go">4 rows in set (0.00 sec)</span>
+
+<span class="hll"><span class="go">MariaDB [survey_db]&gt; exit</span>
+</span><span class="go">Bye</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id8">
+<h2>1.8. 動作確認<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>再び Web ブラウザで http ://ホストオンリーアダプターの IP アドレス を開きます。 <a class="reference internal" href="#login"><span class="std std-numref">図 1.1</span></a> 画面が出れば成功です。</p>
+<div class="figure align-center" id="login">
+<img alt="_images/login.png" src="_images/login.png" />
+<p class="caption"><span class="caption-number">図 1.1 </span><span class="caption-text">アンケート調査アプリケーションログイン画面</span><a class="headerlink" href="#login" title="この画像へのパーマリンク">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="specification.html" class="btn btn-neutral float-right" title="2. 仕様" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="PHP-Survey" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, yamachan
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

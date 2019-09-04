@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="noindex" name="robots" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. 仕様 &mdash; CySecPRO 1.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="1. インストール" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> CySecPRO
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. インストール</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. 仕様</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.1. データベース</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accounts">2.1.1. テーブル accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#answers">2.1.2. テーブル answers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options">2.1.3. テーブル options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#surveys">2.1.4. テーブル surveys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.1.5. 以下は作りかけです。関係のない資料もありますので参考にしないでください。</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CySecPRO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>2. 仕様</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/specification.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2. 仕様<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>2.1. データベース<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="accounts">
+<h3>2.1.1. テーブル accounts<a class="headerlink" href="#accounts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>解答者管理テーブルです。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 11%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名前</p></th>
+<th class="head"><p>データ型</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>int(11)</p></td>
+<td><p>ユニークキー</p></td>
+</tr>
+<tr class="row-odd"><td><p>email</p></td>
+<td><p>varchar(255)</p></td>
+<td><p>メールアドレス（強要はしていない）</p></td>
+</tr>
+<tr class="row-even"><td><p>password</p></td>
+<td><p>varchar(255)</p></td>
+<td><p>md5 でハッシュ化されたパスワード</p></td>
+</tr>
+<tr class="row-odd"><td><p>has_voted</p></td>
+<td><p>tinyint(1)</p></td>
+<td><p>すでに投票完了しているとき 1 まだであれば 0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="answers">
+<h3>2.1.2. テーブル answers<a class="headerlink" href="#answers" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>各人の解答を格納します。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 11%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名前</p></th>
+<th class="head"><p>データ型</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>int(11)</p></td>
+<td><p>ユニークーキー</p></td>
+</tr>
+<tr class="row-odd"><td><p>account_id</p></td>
+<td><p>int(11)</p></td>
+<td><p>誰の答えか（accounts テーブルの id）</p></td>
+</tr>
+<tr class="row-even"><td><p>option_id</p></td>
+<td><p>int(11)</p></td>
+<td><p>答えた選択肢（options の id）</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="options">
+<h3>2.1.3. テーブル options<a class="headerlink" href="#options" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 11%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名前</p></th>
+<th class="head"><p>データ型</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>int(11)</p></td>
+<td><p>ユニークーキー</p></td>
+</tr>
+<tr class="row-odd"><td><p>survey_id</p></td>
+<td><p>int(11)</p></td>
+<td><p>質問事項（surveys テーブルの id）</p></td>
+</tr>
+<tr class="row-even"><td><p>text</p></td>
+<td><p>varchar(255)</p></td>
+<td><p>survey_id 中の選択肢</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="surveys">
+<h3>2.1.4. テーブル surveys<a class="headerlink" href="#surveys" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 11%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名前</p></th>
+<th class="head"><p>データ型</p></th>
+<th class="head"><p>説明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>idd</p></td>
+<td><p>int(11)</p></td>
+<td><p>ユニークーキー</p></td>
+</tr>
+<tr class="row-odd"><td><p>question</p></td>
+<td><p>varchar(255)</p></td>
+<td><p>質問事項</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>varchar(32)</p></td>
+<td><p>Yes No の質問であれば single、複数選択肢は multiple</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>2.1.5. 以下は作りかけです。関係のない資料もありますので参考にしないでください。<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<img alt="sequencediagram-specification-0" id="sequencediagram-specification-0" src=".\_images\sequencediagram-specification-0.png" />
+<img alt="sequencediagram-specification-1" id="sequencediagram-specification-1" src=".\_images\sequencediagram-specification-1.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="install.html" class="btn btn-neutral float-left" title="1. インストール" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, yamachan
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
