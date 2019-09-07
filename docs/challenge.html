@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta content="noindex" name="robots" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>検索 &mdash; php-survey 1.0 ドキュメント</title>
+  <title>3. 課題 &mdash; php-survey 1.0 ドキュメント</title>
   
 
   
@@ -26,7 +27,6 @@
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
         <script type="text/javascript" src="_static/translations.js"></script>
-        <script type="text/javascript" src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -36,7 +36,8 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="検索" href="#" /> 
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="prev" title="2. 仕様" href="specification.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -77,10 +78,10 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">1. インストール</a></li>
 <li class="toctree-l1"><a class="reference internal" href="specification.html">2. 仕様</a></li>
-<li class="toctree-l1"><a class="reference internal" href="challenge.html">3. 課題</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. 課題</a></li>
 </ul>
 
             
@@ -126,12 +127,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>検索</li>
+      <li>3. 課題</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/challenge.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -143,24 +146,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="id1">
+<h1>3. 課題<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference internal" href="specification.html#database"><span class="std std-ref">データベース仕様</span></a> を参照して以下チャレンジしてみてください。</p>
+<ol class="arabic simple">
+<li><p>アンケート調査アプリケーションは、どのようにパスワードを管理していますか?</p>
+<ol class="arabic simple">
+<li><p>データベースから、元のパスワードを復元可能ですか?</p></li>
+<li><p>それは、どういうアルゴリズムを使っているからですか? 一般的に何といわれてますか?</p></li>
+</ol>
+</li>
+<li><p>データベースを操作して...</p>
+<ol class="arabic simple">
+<li><p>新しいユーザーを加えてください。</p></li>
+<li><p>あるユーザーの回答をすべて消去するにはどうすればよいでしょうか。</p></li>
+<li><p>新しい質問を作ってください。</p></li>
+</ol>
+</li>
+</ol>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="specification.html" class="btn btn-neutral float-left" title="2. 仕様" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -193,14 +210,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

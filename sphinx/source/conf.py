@@ -51,7 +51,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'CySecPRO'
+project = u'php-survey'
 copyright = u'2019, yamachan'
 author = u'yamachan'
 

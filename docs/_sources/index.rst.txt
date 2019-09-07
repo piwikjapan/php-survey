@@ -22,3 +22,4 @@ PHP-Survey
 
    install
    specification
+   challenge

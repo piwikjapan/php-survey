@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. 仕様 &mdash; CySecPRO 1.0 ドキュメント</title>
+  <title>2. 仕様 &mdash; php-survey 1.0 ドキュメント</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> CySecPRO
+            <a href="index.html" class="icon icon-home"> php-survey
           
 
           
@@ -86,7 +86,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#answers">2.1.2. テーブル answers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#options">2.1.3. テーブル options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#surveys">2.1.4. テーブル surveys</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">2.1.5. 以下は作りかけです。関係のない資料もありますので参考にしないでください。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. 関数の呼ばれ方</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.2.1. ログイン時の遷移</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">2.2.2. ログイン時</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.2.3. アンケート終了時</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mvc">2.2.4. MVC モデル</a></li>
 </ul>
 </li>
 </ul>
@@ -105,7 +111,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">CySecPRO</a>
+          <a href="index.html">php-survey</a>
         
       </nav>
 
@@ -160,7 +166,7 @@
 <div class="section" id="id2">
 <h2>2.1. データベース<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="accounts">
-<h3>2.1.1. テーブル accounts<a class="headerlink" href="#accounts" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<span id="database"></span><h3>2.1.1. テーブル accounts<a class="headerlink" href="#accounts" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>解答者管理テーブルです。</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -181,7 +187,7 @@
 </tr>
 <tr class="row-odd"><td><p>email</p></td>
 <td><p>varchar(255)</p></td>
-<td><p>メールアドレス（強要はしていない）</p></td>
+<td><p>メールアドレス（ただしチェック無し: 単なる文字列でも受け入れる）</p></td>
 </tr>
 <tr class="row-even"><td><p>password</p></td>
 <td><p>varchar(255)</p></td>
@@ -285,10 +291,65 @@
 </tbody>
 </table>
 </div>
+</div>
 <div class="section" id="id3">
-<h3>2.1.5. 以下は作りかけです。関係のない資料もありますので参考にしないでください。<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>2.2. 関数の呼ばれ方<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>アンケート調査アプリケーションの各プログラムは、ディレクトリ毎に役目が与えられています。
+ここで簡単に説明しておきますので、プログラムを読んでみるとよいでしょう。</p>
+<p><strong>controllers</strong></p>
+<blockquote>
+<div><p>画面遷移を管理し、次にどのテンプレートテンプレート呼び出すべきかが定義されています。またテンプレートに引き渡すデータの下ごしらえをします。</p>
+</div></blockquote>
+<p><strong>core</strong></p>
+<blockquote>
+<div><p>index.php より最初に呼び出され、データベース接続と一体になったセッション管理を行います。</p>
+</div></blockquote>
+<p><strong>css</strong></p>
+<blockquote>
+<div><p>テンプレートから呼び出される css ファイル群です。</p>
+</div></blockquote>
+<p><strong>images</strong></p>
+<blockquote>
+<div><p>テンプレートから呼び出される画像です。</p>
+</div></blockquote>
+<p><strong>models</strong></p>
+<blockquote>
+<div><p>プログラムからデータベースにどのようにデータを格納するかを定義してあります。アンケート調査アプリケーションにおけるビジネスロジックといったところでしょうか。</p>
+</div></blockquote>
+<p><strong>views</strong></p>
+<blockquote>
+<div><p>テンプレート群です。 controllers から引き渡されるデータを代入すれば html として出力できます。
+アンケート調査アプリケーションは残念ながら、本来 controller が担うべき画面遷移のロジックがテンプレート中に組み込まれており、
+テンプレートが多少混沌としています。</p>
+</div></blockquote>
+<div class="section" id="id4">
+<h3>2.2.1. ログイン時の遷移<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ログイン時に index.php から主要な関数が呼ばれる順序をまとめてみました。</p>
 <img alt="sequencediagram-specification-0" id="sequencediagram-specification-0" src=".\_images\sequencediagram-specification-0.png" />
+</div>
+<div class="section" id="id5">
+<h3>2.2.2. ログイン時<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>こちらは email とパスワードで認証が終わってからアンケートを答え終わるまで、となります。</p>
 <img alt="sequencediagram-specification-1" id="sequencediagram-specification-1" src=".\_images\sequencediagram-specification-1.png" />
+</div>
+<div class="section" id="id6">
+<h3>2.2.3. アンケート終了時<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アンケートをすべて答え終わったときの処理です。</p>
+<img alt="sequencediagram-specification-2" id="sequencediagram-specification-2" src=".\_images\sequencediagram-specification-2.png" />
+</div>
+<div class="section" id="mvc">
+<h3>2.2.4. MVC モデル<a class="headerlink" href="#mvc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>PHP の場合、html ファイルと PHP プログラムを一緒くたに記述し、各画面を 1 つのファイルで終わらすことも可能ですが、
+一緒くた方式は画面遷移が 4 画面程度でわけがわからなくなり、体力で作り切ったとしても
+のちに仕様変更が生じたときの保守性は最悪です。だって、デザインも一緒くたになってますから。</p>
+<p>このような点を踏まえて、現在ではアンケート調査アプリケーションのように models, views, controllers に役割を分離した
+MVC モデルという考え方が Web アプリケーションの作成では普通に使われます。
+少なくとも views で、html を全部じゃないにしろ PHP プログラムから分離すれば、
+デザインの修正はかなり楽（例えばテンプレートの修正を PHP がわからないデザイナーに振ることが可能になる）になることは想像がつくかと思います。</p>
+<p>アンケート調査アプリケーションでは、BaseController.php, Session.php などのように、違う Web アプリケーション
+を作るとしても使いまわしができそうな共通プログラムも作られていますが、この、使い回しができそうなプログラム
+はいちいち作成せず、これらを集大成したフレームワークを使うのが一般的です。</p>
+<p>例えば PHP だと、Laravel がありますし、Ruby だと <a class="reference external" href="https://coedo-rails.doorkeeper.jp/events/37506">Ruby on Rails</a> が有名です。</p>
 </div>
 </div>
 </div>
